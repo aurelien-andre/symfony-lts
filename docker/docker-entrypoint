@@ -1,0 +1,60 @@
+#!/bin/sh
+
+if [ "$1" = 'supervisord' ]; then
+
+  if [ ! -f "/var/www/html/vendor/autoload.php" ]; then
+
+    composer \
+      install \
+      --prefer-dist \
+      --no-progress \
+      --no-interaction
+
+    if [ "$APP_ENV" = 'prod' ]; then
+
+      composer \
+        dump-autoload \
+        --no-dev \
+        --classmap-authoritative
+
+    fi
+
+  fi
+
+  if [ -n "$(ls -A /var/www/html/migrations/*.php 2>/dev/null)" ]; then
+
+    until bin/console doctrine:query:sql "select 1" >/dev/null 2>&1; do
+
+      (echo >&2 "Waiting for MySQL to be ready...")
+
+      sleep 1
+
+    done
+
+    bin/console \
+      doctrine:migrations:migrate \
+      --no-interaction
+  fi
+
+#  if [ -n "$(ls -A /var/www/html/public/static/* 2>/dev/null)" ]; then
+#
+#    bin/console assets:install \
+#      --no-interaction
+#
+#  fi
+
+fi
+
+if [ "$1" = 'supervisorctl' ]; then
+
+  while [ ! -f "/var/pid/supervisord.pid" ]; do
+
+    (echo >&2 "Waiting for Supervisor to be ready...")
+
+    sleep 2
+
+  done
+
+fi
+
+exec "$@"
