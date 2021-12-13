@@ -151,7 +151,6 @@ chown rootless:rootless /var/log; \
 mkdir -p /var/cache; \
 mkdir -p /var/cache/composer; \
 mkdir -p /var/cache/opcache; \
-mkdir -p /var/cache/yarn; \
 chmod 777 -R /var/cache; \
 chown rootless:rootless /var/cache; \
 mkdir -p /var/lib; \
