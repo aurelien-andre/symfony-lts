@@ -1,4 +1,4 @@
-![symfony](./doc/symfony.jpg)
+![symfony](./doc/symfony.png)
 
 ## Requirements
 
