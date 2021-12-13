@@ -15,7 +15,6 @@
 | OS                | bullseye-slim |
 | Nginx             | 1.18          |
 | PHP               | 8.0           |
-| NodeJs            | 16            |
 | Symfony           | 5.4           |
 | Composer          | latest        |
 
