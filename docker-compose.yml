@@ -46,7 +46,7 @@ services:
       - mysql
 
   symfony:
-    image: aurelienandre/portfolio:latest
+    image: aurelienandre/symfony-lts:latest
     env_file:
       - .env
     labels:
