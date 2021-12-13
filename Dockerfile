@@ -17,6 +17,7 @@ YARN_CACHE_FOLDER="/var/cache/yarn" \
 MEMORY_LIMIT="2G" \
 REALPATH_CACHE_SIZE="4096K" \
 REALPATH_CACHE_TTL="600" \
+XDEBUG_MODE="develop,trace" \
 OPCACHE_ENABLE="1" \
 OPCACHE_ENABLE_CLI="1" \
 OPCACHE_MEMORY_CONSUMPTION="256" \
@@ -98,6 +99,8 @@ php8.0-common \
 php8.0-bcmath \
 php8.0-opcache \
 php8.0-amqp \
+php8.0-apcu \
+php8.0-xdebug \
 php8.0-curl \
 php8.0-mbstring \
 php8.0-mysql \
@@ -106,7 +109,6 @@ php8.0-xsl \
 php8.0-gd \
 php8.0-intl \
 php8.0-iconv \
-php8.0-soap \
 php8.0-ftp \
 php8.0-zip
 
@@ -187,8 +189,6 @@ RUN set -eux; \
 chmod +x -R /usr/bin; \
 chmod +x -R /usr/sbin; \
 chmod +x -R /var/www/html/bin
-
-ENV PATH="/var/www/html/bin:${PATH}"
 
 WORKDIR /var/www/html
 
