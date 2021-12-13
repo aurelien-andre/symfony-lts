@@ -92,7 +92,6 @@ php8.0-fpm \
 php8.0-common \
 php8.0-bcmath \
 php8.0-opcache \
-php8.0-amqp \
 php8.0-apcu \
 php8.0-xdebug \
 php8.0-curl \
