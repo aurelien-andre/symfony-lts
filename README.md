@@ -1,4 +1,4 @@
-![magento 2](https://symfony.com/logos/symfony_black_02.svg)
+![symfony](https://symfony.com/logos/symfony_black_02.svg)
 
 ## Requirements
 
