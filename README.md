@@ -5,18 +5,18 @@
 | Service           | Version |
 | ----------------- | ------- |
 | OS Unix           | *       |
-| Docker            | ^20     |
-| Docker-Compose    | ^1.28   |
+| Docker            | 20      |
+| Docker-Compose    | 1.28    |
 
 ## Image
 
 | Service           | Version       |
 | ----------------- | ------------- |
 | OS                | bullseye-slim |
-| Nginx             | ^1.18         |
+| Nginx             | 1.18          |
 | PHP               | 8.0           |
 | NodeJs            | 16            |
-| Symfony           | ^5.4          |
+| Symfony           | 5.4           |
 | Composer          | latest        |
 
 ## Install
