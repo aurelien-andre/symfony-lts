@@ -13,7 +13,6 @@ MYSQL_DATABASE="worker" \
 COMPOSER_ALLOW_SUPERUSER="0" \
 COMPOSER_ALLOW_XDEBUG="0" \
 COMPOSER_CACHE_DIR="/var/cache/composer" \
-YARN_CACHE_FOLDER="/var/cache/yarn" \
 MEMORY_LIMIT="2G" \
 REALPATH_CACHE_SIZE="4096K" \
 REALPATH_CACHE_TTL="600" \
@@ -80,18 +79,13 @@ echo 'rootless:rootless:65533:65534:/root:/bin' >> /etc/passwd; \
 echo 'rootless::65533:rootless' >> /etc/group
 
 RUN apt-get update \
-&&  curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-&&  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 &&  wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
-&&  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
 &&  echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 
 RUN apt-get update \
 &&  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 supervisor \
 nginx \
-nodejs \
-yarn \
 php8.0 \
 php8.0-cli \
 php8.0-fpm \
