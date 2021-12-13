@@ -5,8 +5,10 @@
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
-/vendor/
+/var/*
+!/var/.gitignore
+/vendor/*
+!/vendor/.gitignore
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

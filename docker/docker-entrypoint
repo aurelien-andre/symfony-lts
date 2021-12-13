@@ -57,4 +57,16 @@ if [ "$1" = 'supervisorctl' ]; then
 
 fi
 
+if [ "$1" = 'nginx' ]; then
+
+  while [ ! -f "/var/pid/php8.0-fpm.pid" ]; do
+
+    (echo >&2 "Waiting for Fpm to be ready...")
+
+    sleep 2
+
+  done
+
+fi
+
 exec "$@"
