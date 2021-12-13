@@ -1,7 +1,6 @@
 /data
 /src/vendor
 /src/var
-/doc
 /.git
 /.gitignore
 /docker-compose.yml
