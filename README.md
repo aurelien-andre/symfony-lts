@@ -1,8 +1,6 @@
 # Symfony LTS
 version 5.4
 
----
-
 ## Requirements
 
 | Service           | Version |
