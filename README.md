@@ -51,15 +51,15 @@ supervisorctl help
 ```shell
 supervisorctl
 
-# server:server-fpm_00             RUNNING   pid 11, uptime 0:16:39
-# server:server-nginx_00           RUNNING   pid 10, uptime 0:16:39
+# server:service-fpm_00            RUNNING   pid 8, uptime 0:00:19
+# server:service-nginx_00          RUNNING   pid 7, uptime 0:00:19
 ```
 
 ```shell
 supervisorctl restart server:*
 
-# server:server-nginx_00: stopped
-# server:server-fpm_00: stopped
-# server:server-nginx_00: started
-# server:server-fpm_00: started
+# server:service-nginx_00: stopped
+# server:service-fpm_00: stopped
+# server:service-nginx_00: started
+# server:service-fpm_00: started
 ```
