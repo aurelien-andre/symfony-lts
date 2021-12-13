@@ -59,4 +59,4 @@ services:
       - traefik
       - mysql
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:rw,delegated
