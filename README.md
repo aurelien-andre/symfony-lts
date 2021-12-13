@@ -1,4 +1,7 @@
-![symfony](./doc/symfony.jpg)
+# Symfony LTS
+version 5.4
+
+---
 
 ## Requirements
 
