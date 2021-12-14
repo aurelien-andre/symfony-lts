@@ -3,6 +3,7 @@
 /src/var
 /.git
 /.gitignore
+/.idea
 /docker-compose.yml
 /Dockerfile
 /README.md
