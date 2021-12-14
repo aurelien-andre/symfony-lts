@@ -72,11 +72,3 @@ docker-composer run composer install
 ```shell
 docker-composer run composer require your-package
 ```
-
-## Troubleshooting
-
-In the context of a local machine without root rights
-
-```shell
-docker run -it --rm -v $PWD:/workspace debian:bullseye-slim chmod 777 -R /workspace
-```
