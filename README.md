@@ -18,7 +18,6 @@ Version 5.4
 | Nginx             | 1.18          |
 | PHP               | 8.0           |
 | Symfony           | 5.4           |
-| Composer          | latest        |
 
 ## Install
 
