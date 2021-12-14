@@ -63,3 +63,13 @@ supervisorctl restart server:*
 # server:service-nginx_00: started
 # server:service-fpm_00: started
 ```
+
+## Composer
+
+```shell
+docker-composer run composer install
+```
+
+```shell
+docker-composer run composer require your-package
+```

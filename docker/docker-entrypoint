@@ -2,24 +2,13 @@
 
 if [ "$1" = 'supervisord' ]; then
 
-  if [ ! -f "/var/www/html/vendor/autoload.php" ]; then
+  while [ ! -f "/var/www/html/vendor/autoload.php" ]; do
 
-    composer \
-      install \
-      --prefer-dist \
-      --no-progress \
-      --no-interaction
+    (echo >&2 "Waiting for Composer to be ready...")
 
-    if [ "$APP_ENV" = 'prod' ]; then
+    sleep 2
 
-      composer \
-        dump-autoload \
-        --no-dev \
-        --classmap-authoritative
-
-    fi
-
-  fi
+  done
 
   if [ -n "$(ls -A /var/www/html/migrations/*.php 2>/dev/null)" ]; then
 
@@ -36,12 +25,12 @@ if [ "$1" = 'supervisord' ]; then
       --no-interaction
   fi
 
-#  if [ -n "$(ls -A /var/www/html/public/static/* 2>/dev/null)" ]; then
-#
-#    bin/console assets:install \
-#      --no-interaction
-#
-#  fi
+  if [ -n "$(ls -A /var/www/html/public/bundles/* 2>/dev/null)" ]; then
+
+    bin/console assets:install \
+      --no-interaction
+
+  fi
 
 fi
 

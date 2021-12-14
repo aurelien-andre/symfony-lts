@@ -45,6 +45,16 @@ services:
       - traefik
       - mysql
 
+  composer:
+    image: composer
+    command: install --prefer-dist --no-progress --no-interaction
+    labels:
+      - traefik.enable=false
+    volumes:
+      - ./src:/app:rw,delegated
+    depends_on:
+      - traefik
+
   symfony:
     image: aurelienandre/symfony-lts:latest
     env_file:
@@ -56,6 +66,7 @@ services:
     links:
       - mysql
     depends_on:
+      - composer
       - traefik
       - mysql
     volumes:

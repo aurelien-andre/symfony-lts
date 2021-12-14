@@ -10,9 +10,6 @@ MYSQL_ROOT_PASSWORD="nopassword" \
 MYSQL_USER="www-data" \
 MYSQL_PASSWORD="www-password" \
 MYSQL_DATABASE="worker" \
-COMPOSER_ALLOW_SUPERUSER="0" \
-COMPOSER_ALLOW_XDEBUG="0" \
-COMPOSER_CACHE_DIR="/var/cache/composer" \
 MEMORY_LIMIT="2G" \
 REALPATH_CACHE_SIZE="4096K" \
 REALPATH_CACHE_TTL="600" \
@@ -172,8 +169,6 @@ rm -rf /etc/apt/sources.list.d/*; \
 rm -f /var/www/html/*;
 
 COPY --chown=rootless:rootless src /var/www/html
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
 COPY --chown=rootless:rootless docker/* /usr/bin
 
