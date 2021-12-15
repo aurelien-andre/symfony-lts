@@ -27,7 +27,8 @@ if [ "$1" = 'supervisord' ]; then
 
   if [ -n "$(ls -A /var/www/html/public/bundles/ 2>/dev/null)" ]; then
 
-    bin/console assets:install \
+    bin/console \
+      assets:install \
       --no-interaction
 
   fi
