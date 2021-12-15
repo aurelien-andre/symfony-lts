@@ -4,6 +4,8 @@
 
 https://symfony.com/doc/current/frontend.html
 
+https://symfonycasts.com/screencast/stimulus/controllers
+
 ## Install
 
 Install composer package
