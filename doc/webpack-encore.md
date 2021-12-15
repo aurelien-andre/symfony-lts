@@ -12,7 +12,7 @@ Install composer package
 docker-composer run composer require symfony/webpack-encore-bundle
 ```
 
-Change docker-composer.yml, add yarn image
+Update docker-composer.yml
 
 ```yaml
 version: '3.8'
@@ -102,7 +102,7 @@ services:
       - ./src:/var/www/html:rw,delegated
 ```
 
-Update the docker-entrypoint
+Update /docker/docker-entrypoint
 
 ```shell
 #!/bin/sh
