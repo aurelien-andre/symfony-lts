@@ -10,7 +10,7 @@ Version 5.4
 | Docker            | 20      |
 | Docker-Compose    | 1.28    |
 
-## Image
+## Image (rootless)
 
 | Service           | Version       |
 | ----------------- | ------------- |
