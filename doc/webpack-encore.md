@@ -196,7 +196,6 @@ Update .dockerignore
 Build new image 
 
 ```shell
-# Change the name with yours image
 docker build -t . aurelienandre/symfony-lts:latest
 ```
 
