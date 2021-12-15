@@ -1,10 +1,10 @@
-# Symfony LTS
+# Symfony LTS webpack-encore
 
-## Install webpack-encore
-
-Documentation
+## Documentation
 
 https://symfony.com/doc/current/frontend.html
+
+## Install
 
 Install composer package
 
