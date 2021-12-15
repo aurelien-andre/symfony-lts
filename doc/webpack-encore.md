@@ -193,6 +193,36 @@ Update .dockerignore
 /README.md
 ```
 
+Update /src/.gitignore
+
+```text
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/*
+!/var/.gitignore
+/vendor/*
+!/vendor/.gitignore
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/*
+!/node_modules/.gitignore
+/public/build/*
+!/public/build/.gitignore
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+```
+
 Build new image 
 
 ```shell
