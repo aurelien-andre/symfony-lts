@@ -2,6 +2,22 @@
 
 if [ "$1" = 'supervisord' ]; then
 
+  if [ "$DATABASE_URL" = "" ]; then
+
+    DATABASE_URL=$(printf \
+      "mysql://%s:%s@%s:%s/%s?serverVersion=%s" \
+      "$MYSQL_USER" \
+      "$MYSQL_PASSWORD" \
+      "$MYSQL_HOST" \
+      "$MYSQL_PORT" \
+      "$MYSQL_DATABASE" \
+      "$MYSQL_VERSION"
+    )
+
+    export "DATABASE_URL=$DATABASE_URL"
+
+  fi
+
   while [ ! -f "/var/www/html/vendor/autoload.php" ]; do
 
     (echo >&2 "Waiting for Composer to be ready...")

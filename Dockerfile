@@ -1,8 +1,9 @@
 FROM debian:bullseye-slim
 
 ENV \
-APP_ENV="" \
-APP_SECRET="" \
+APP_ENV="prod" \
+APP_DEBUG="0" \
+APP_SECRET="76e5df6cee257fb639cf8fb3f950a60d" \
 DATABASE_URL="" \
 MYSQL_HOST="mysql" \
 MYSQL_PORT="3306" \
