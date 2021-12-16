@@ -4,7 +4,7 @@ ENV \
 APP_ENV="prod" \
 APP_DEBUG="0" \
 APP_SECRET="76e5df6cee257fb639cf8fb3f950a60d" \
-DATABASE_URL="" \
+DATABASE_URL="mysql://rootless:nopassword@mysql:3306/database?serverVersion=5.7" \
 MYSQL_HOST="mysql" \
 MYSQL_PORT="3306" \
 MYSQL_ROOT_PASSWORD="nopassword" \
