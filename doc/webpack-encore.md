@@ -11,7 +11,7 @@ https://symfonycasts.com/screencast/stimulus/controllers
 Install composer package
 
 ```shell
-docker-composer run composer require symfony/webpack-encore-bundle
+docker-composer run --rm composer require symfony/webpack-encore-bundle
 ```
 
 Update docker-composer.yml
@@ -234,11 +234,11 @@ docker build -t . aurelienandre/symfony-lts:latest
 Usage yarn
 
 ```shell
-docker-compose run yarn
+docker-compose run --rm yarn
 ```
 
 Add new package
 
 ```shell
-docker-compose run yarn add your-package
+docker-compose run --rm yarn add your-package
 ```

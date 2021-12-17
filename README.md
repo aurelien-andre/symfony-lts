@@ -66,9 +66,9 @@ supervisorctl restart server:*
 ## Composer
 
 ```shell
-docker-composer run composer install
+docker-composer run --rm composer install
 ```
 
 ```shell
-docker-composer run composer require your-package
+docker-composer run --rm composer require your-package
 ```
