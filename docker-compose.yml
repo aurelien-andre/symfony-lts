@@ -46,7 +46,7 @@ services:
       - mysql
 
   composer:
-    image: composer
+    image: aurelienandre/composer:latest
     command: install --prefer-dist --no-progress --no-interaction
     labels:
       - traefik.enable=false
