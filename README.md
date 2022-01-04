@@ -35,6 +35,28 @@ Copy rules
 127.0.0.1       www.symfony.lan
 ```
 
+## PHP
+
+### Configuration
+
+To configure php, use the environment variable.
+
+Eg. set memory_limit = -1
+
+PHP_MEMORY_LIMIT = -1
+
+Eg. set opcache.enable = 1
+
+PHP_OPCACHE__ENABLE = 1
+
+the "PHP_" prefix is removed and the double underscores are replaced by dots
+
+The entire configuration overlay is in the docker image
+
+```shell
+cat /etc/php/8.0/90-php.ini
+```
+
 ## Supervisor
 
 ```shell

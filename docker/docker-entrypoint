@@ -1,6 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$1" = 'supervisord' ]; then
+
+  if [ ! -s "/etc/php/8.0/90-php.ini" ]; then
+
+    for e in "${!PHP_@}"; do
+
+      VARIABLE=$(echo "$e" | sed -e 's/PHP_/''/g' | sed -e 's/__/'.'/g' | awk '{print tolower($0)}')
+
+      VALUE=$(printf '${%s}' "$e")
+
+      echo "$VARIABLE=$VALUE" >> "/etc/php/8.0/90-php.ini"
+
+    done
+
+  fi
 
   while [ ! -f "/var/www/html/vendor/autoload.php" ]; do
 
