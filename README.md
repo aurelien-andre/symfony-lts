@@ -35,6 +35,36 @@ Copy rules
 127.0.0.1       www.symfony.lan
 ```
 
+Install composer
+
+```shell
+# @see https://getcomposer.org/download/
+wget -q https://getcomposer.org/download/latest-stable/composer.phar; \
+mv composer.phar docker/bin-composer
+```
+
+Install mailHog (local)
+
+```shell
+# @see https://github.com/mailhog/mhsendmail/releases
+wget -q https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64; \
+mv mhsendmail_linux_amd64 docker/bin-mhsendmail
+```
+
+Build image
+
+```shell
+docker build . -t aurelienandre/symfony-lts:latest \
+--build-arg UID=$(id -u) \
+--build-arg GID=$(id -g)
+```
+
+Start containers
+
+```shell
+docker-compose up
+```
+
 ## PHP
 
 ### Configuration
@@ -83,14 +113,4 @@ supervisorctl restart server:*
 # server:service-fpm_00: stopped
 # server:service-nginx_00: started
 # server:service-fpm_00: started
-```
-
-## Composer
-
-```shell
-docker-composer run --rm composer install
-```
-
-```shell
-docker-composer run --rm composer require your-package
 ```

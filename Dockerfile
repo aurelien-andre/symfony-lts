@@ -1,5 +1,8 @@
 FROM debian:bullseye-slim
 
+ARG UID=1000
+ARG GID=1000
+
 ENV \
 APP_ENV="prod" \
 APP_DEBUG="0" \
@@ -10,7 +13,7 @@ MYSQL_PORT="3306" \
 MYSQL_ROOT_PASSWORD="nopassword" \
 MYSQL_USER="www-data" \
 MYSQL_PASSWORD="www-password" \
-MYSQL_DATABASE="worker" \
+MYSQL_DATABASE="database" \
 PHP_MEMORY_LIMIT="2G" \
 PHP_REALPATH_CACHE_SIZE="4096K" \
 PHP_REALPATH_CACHE_TTL="600" \
@@ -19,7 +22,7 @@ PHP_OPCACHE__ENABLE="1" \
 PHP_OPCACHE__ENABLE_CLI="1" \
 PHP_OPCACHE__MEMORY_CONSUMPTION="256" \
 PHP_OPCACHE__INTERNED_STRINGS_BUFFER="8" \
-PHP_OPCACHE__MAX_ACCELERATED_FILES="20000" \
+PHP_OPCACHE__MAX_ACCELERATED_FILES="60000" \
 PHP_OPCACHE__MAX_WASTED_PERCENTAGE="5" \
 PHP_OPCACHE__USE_CWD="1" \
 PHP_OPCACHE__VALIDATE_TIMESTAMPS="0" \
@@ -52,7 +55,7 @@ PHP_OPCACHE__OPT_DEBUG_LEVEL="0" \
 PHP_OPCACHE__PRELOAD="/var/www/html/config/preload.php" \
 PHP_OPCACHE__PRELOAD_USER="rootless" \
 PHP_OPCACHE__LOCKFILE_PATH="/var/lock/opcache" \
-PHP_OPCACHE__JIT="" \
+PHP_OPCACHE__JIT="1255" \
 PHP_OPCACHE__JIT_BUFFER_SIZE="250MB"
 
 RUN apt-get update \
@@ -70,11 +73,12 @@ curl \
 unzip
 
 RUN set -eux; \
-adduser -h /home/rootless -g 'rootless' -D -u 1000 rootless; \
-echo 'rootless:65533:65534' >> /etc/subuid; \
-echo 'rootless:65533:65534' >> /etc/subgid; \
-echo 'rootless:rootless:65533:65534:/root:/bin' >> /etc/passwd; \
-echo 'rootless::65533:rootless' >> /etc/group
+adduser -h /home/rootless -g "rootless" -D -u ${UID} rootless; \
+echo "rootless:${UID}:${GID}" >> /etc/subuid; \
+echo "rootless:${UID}:${GID}" >> /etc/subgid; \
+echo "rootless:rootless:${UID}:${GID}:/root:/bin" >> /etc/passwd; \
+echo "rootless::${GID}:rootless" >> /etc/group
+
 
 RUN apt-get update \
 &&  wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
@@ -171,7 +175,7 @@ rm -f /var/www/html/*;
 
 COPY --chown=rootless:rootless src /var/www/html
 
-COPY --chown=rootless:rootless docker/* /usr/bin
+COPY --chown=rootless:rootless docker/* /usr/bin/
 
 RUN set -eux; \
 chmod +x -R /usr/bin; \
