@@ -65,6 +65,12 @@ Start containers
 docker-compose up
 ```
 
+Install composer packages
+
+```shell
+docker-compose exec symfony bin-composer install --prefer-dist --no-progress --no-interaction
+```
+
 ## PHP
 
 ### Configuration
