@@ -43,7 +43,7 @@ wget -q https://getcomposer.org/download/latest-stable/composer.phar; \
 mv composer.phar docker/bin-composer
 ```
 
-Install mailHog (local)
+Install mhsendmail
 
 ```shell
 # @see https://github.com/mailhog/mhsendmail/releases
